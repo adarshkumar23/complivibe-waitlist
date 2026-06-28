@@ -20,7 +20,7 @@ const TIERS = [
 
 export default function PricingTeaser() {
   return (
-    <section className="relative overflow-hidden px-5 py-24 sm:px-8 sm:py-32">
+    <section className="relative overflow-hidden px-4 py-14 sm:px-8 sm:py-32">
       {/* deep gradient backdrop */}
       <div
         className="absolute inset-0 -z-0"
@@ -48,7 +48,7 @@ export default function PricingTeaser() {
           <RevealOnScroll delay={0.1} direction="left" className="h-full">
             <TiltCard
               max={8}
-              className="flex h-full flex-col rounded-glass border border-white/10 p-8 opacity-80"
+              className="flex h-full flex-col rounded-glass border border-white/10 p-5 opacity-80 sm:p-8"
               style={{ background: 'rgba(255,255,255,0.04)' }}
             >
               <div className="mb-5 flex items-center justify-between">
@@ -80,7 +80,7 @@ export default function PricingTeaser() {
           <RevealOnScroll delay={0.2} direction="right" className="h-full">
             <TiltCard
               max={8}
-              className="gradient-border flex h-full flex-col rounded-glass p-8"
+              className="gradient-border flex h-full flex-col rounded-glass p-5 sm:p-8"
               style={{
                 background: 'rgba(255,255,255,0.08)',
                 boxShadow: '0 0 60px rgba(110,231,183,0.18)',

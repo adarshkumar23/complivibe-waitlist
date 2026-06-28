@@ -28,7 +28,7 @@ const BENEFITS = [
 
 export default function EarlyBenefits() {
   return (
-    <section className="relative px-5 py-20 sm:px-8 sm:py-28">
+    <section className="relative px-4 py-14 sm:px-8 sm:py-28">
       <div className="relative z-10 mx-auto max-w-5xl">
         <RevealOnScroll className="mx-auto max-w-2xl text-center">
           <p className="eyebrow mb-3">What You Get</p>

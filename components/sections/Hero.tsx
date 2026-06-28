@@ -19,7 +19,7 @@ export default function Hero() {
   return (
     <section
       id="top"
-      className="relative flex min-h-screen flex-col items-center justify-center px-5 pb-16 pt-28 text-center sm:px-8"
+      className="relative flex min-h-[100svh] flex-col items-center justify-center px-4 pb-12 pt-20 text-center sm:px-8 sm:pb-16 sm:pt-28"
     >
       <div className="relative z-10 mx-auto max-w-3xl">
         {/* t=0.2s eyebrow */}
@@ -48,7 +48,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.9, duration: 0.55, ease }}
-          className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-ink-secondary sm:text-xl"
+          className="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-ink-secondary sm:mt-6 sm:text-lg md:text-xl"
         >
           CompliVibe unifies AI compliance, governance, and observability into one trust layer
           — so you can ship AI without the regulatory risk.

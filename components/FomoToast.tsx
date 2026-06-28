@@ -44,15 +44,15 @@ export default function FomoToast() {
   }, [])
 
   return (
-    <div className="pointer-events-none fixed bottom-5 right-5 z-[60]">
+    <div className="pointer-events-none fixed bottom-4 right-4 z-[60] left-4 sm:left-auto sm:bottom-5 sm:right-5">
       <AnimatePresence>
         {message && (
           <motion.div
-            initial={{ opacity: 0, y: 30, x: 10, scale: 0.95 }}
-            animate={{ opacity: 1, y: 0, x: 0, scale: 1 }}
+            initial={{ opacity: 0, y: 30, scale: 0.95 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 20, scale: 0.95 }}
             transition={{ type: 'spring', stiffness: 260, damping: 22 }}
-            className="glass-strong pointer-events-auto flex max-w-xs items-center gap-3 px-4 py-3"
+            className="glass-strong pointer-events-auto flex w-full items-center gap-3 px-4 py-3 sm:max-w-xs sm:w-auto"
           >
             <CheckCircle2 size={18} className="flex-shrink-0 text-risk-low" />
             <p className="text-sm font-medium text-ink">{message}</p>

@@ -13,7 +13,7 @@ import WaitlistForm from '@/components/sections/WaitlistForm'
 
 export default function Home() {
   return (
-    <main className="relative min-h-screen overflow-hidden">
+    <main className="relative min-h-screen">
       {/* Animated gradient mesh background + drifting blobs */}
       <div className="mesh-bg fixed inset-0 -z-10" />
       <div

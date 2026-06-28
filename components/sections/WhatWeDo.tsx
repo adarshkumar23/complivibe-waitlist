@@ -31,7 +31,7 @@ function IconBadge({ children }: { children: React.ReactNode }) {
 
 export default function WhatWeDo() {
   return (
-    <section id="platform" className="relative px-5 py-20 sm:px-8 sm:py-28">
+    <section id="platform" className="relative px-4 py-14 sm:px-8 sm:py-28">
       <div className="relative z-10 mx-auto max-w-6xl">
         <RevealOnScroll className="mx-auto max-w-2xl text-center">
           <p className="eyebrow mb-3">The Platform</p>
@@ -45,7 +45,7 @@ export default function WhatWeDo() {
         <div className="mt-14 grid grid-cols-1 gap-6 lg:grid-cols-3">
           {/* Card 1 — Compliance */}
           <RevealOnScroll delay={0} direction="up" className="h-full">
-            <TiltCard className="glass flex h-full flex-col p-8">
+            <TiltCard className="glass flex h-full flex-col p-5 sm:p-8">
               <IconBadge>
                 <ShieldCheck size={24} />
               </IconBadge>
@@ -69,7 +69,7 @@ export default function WhatWeDo() {
 
           {/* Card 2 — Governance (highlighted) */}
           <RevealOnScroll delay={0.12} direction="up" className="h-full">
-            <TiltCard className="glass-strong gradient-border gradient-border-glow flex h-full flex-col p-8">
+            <TiltCard className="glass-strong gradient-border gradient-border-glow flex h-full flex-col p-5 sm:p-8">
               <IconBadge>
                 <Network size={24} />
               </IconBadge>
@@ -91,7 +91,7 @@ export default function WhatWeDo() {
 
           {/* Card 3 — Observability */}
           <RevealOnScroll delay={0.24} direction="up" className="h-full">
-            <TiltCard className="glass flex h-full flex-col p-8">
+            <TiltCard className="glass flex h-full flex-col p-5 sm:p-8">
               <IconBadge>
                 <Activity size={24} />
               </IconBadge>

@@ -30,7 +30,7 @@ const CARDS = [
 
 export default function Stakes() {
   return (
-    <section className="relative px-5 py-20 sm:px-8 sm:py-28">
+    <section className="relative px-4 py-14 sm:px-8 sm:py-28">
       <div
         className="absolute inset-x-0 top-0 -z-0 h-full"
         style={{ background: 'rgba(91,95,227,0.04)' }}
@@ -47,11 +47,11 @@ export default function Stakes() {
           {CARDS.map((c, i) => (
             <RevealOnScroll key={c.value} delay={i * 0.12} direction="up" className="h-full">
               <TiltCard
-                className="glass h-full p-8"
+                className="glass h-full p-5 sm:p-8"
                 style={{ borderLeft: `4px solid ${c.accent}` }}
               >
                 <span
-                  className="block text-5xl font-extrabold tracking-tight sm:text-6xl"
+                  className="block text-4xl font-extrabold tracking-tight sm:text-5xl md:text-6xl"
                   style={{ color: c.accent }}
                 >
                   <AnimatedNumber

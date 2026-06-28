@@ -422,3 +422,21 @@ input[type='number']::-webkit-outer-spin-button {
     transition-duration: 0.001ms !important;
   }
 }
+
+/* Mobile-specific: tighten glass border-radius on small screens */
+@media (max-width: 639px) {
+  .glass,
+  .glass-strong,
+  .glass-dark {
+    border-radius: 16px;
+  }
+  /* Prevent text overflow in narrow containers */
+  h1, h2, h3 {
+    overflow-wrap: break-word;
+    word-break: break-word;
+  }
+  /* Ensure images and media don't overflow */
+  img, svg, video {
+    max-width: 100%;
+  }
+}

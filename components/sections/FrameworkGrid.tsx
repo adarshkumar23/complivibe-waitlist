@@ -29,7 +29,7 @@ const item = {
 
 export default function FrameworkGrid() {
   return (
-    <section className="relative px-5 py-20 sm:px-8 sm:py-28">
+    <section className="relative px-4 py-14 sm:px-8 sm:py-28">
       <div className="relative z-10 mx-auto max-w-6xl">
         <RevealOnScroll className="mx-auto max-w-2xl text-center">
           <p className="eyebrow mb-3">Coverage</p>
@@ -50,7 +50,7 @@ export default function FrameworkGrid() {
             <motion.div
               key={f.name}
               variants={item}
-              className="glass glass-lift flex items-center gap-4 p-6"
+              className="glass glass-lift flex items-center gap-3 p-4 sm:gap-4 sm:p-6"
               style={{ borderLeft: `4px solid ${f.accent}` }}
             >
               <span className="text-3xl">{f.flag}</span>

@@ -73,7 +73,7 @@ export default function CountdownTimer({ variant = 'block', className = '' }: Pr
     <div className={`flex items-center gap-2 ${className}`}>
       {units.map((u, i) => (
         <div key={u.label} className="flex items-center gap-2">
-          <div className="glass flex min-w-[52px] flex-col items-center px-2.5 py-2">
+          <div className="glass flex min-w-[44px] flex-col items-center px-2 py-1.5 sm:min-w-[52px] sm:px-2.5 sm:py-2">
             <motion.span
               key={u.value}
               initial={{ scale: 1.15, opacity: 0.7 }}
