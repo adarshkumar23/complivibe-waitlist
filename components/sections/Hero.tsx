@@ -25,7 +25,7 @@ export default function Hero() {
     <section
       id="top"
       className="relative flex flex-col items-center px-4 pb-10 pt-[72px] text-center
-                 sm:min-h-[100svh] sm:justify-center sm:px-8 sm:pb-16 sm:pt-0"
+                 sm:min-h-[100svh] sm:justify-center sm:px-8 sm:pb-16 sm:pt-16"
     >
       <div className="relative z-10 mx-auto w-full max-w-3xl">
         {/* Eyebrow */}
