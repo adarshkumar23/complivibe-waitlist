@@ -45,8 +45,8 @@ export default function EarlyBenefits() {
               direction={i % 2 === 0 ? 'left' : 'right'}
               className="h-full"
             >
-              <TiltCard className="glass flex h-full gap-5 p-7" max={8}>
-                <div className="flex h-14 w-14 flex-shrink-0 items-center justify-center rounded-2xl bg-white/50 text-2xl">
+              <TiltCard className="glass flex h-full gap-4 p-5 sm:gap-5 sm:p-7" max={8}>
+                <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-2xl bg-white/50 text-xl sm:h-14 sm:w-14 sm:text-2xl">
                   {b.icon}
                 </div>
                 <div>

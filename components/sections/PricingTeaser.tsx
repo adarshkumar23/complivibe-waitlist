@@ -43,7 +43,7 @@ export default function PricingTeaser() {
           </p>
         </RevealOnScroll>
 
-        <div className="mt-14 grid grid-cols-1 gap-6 lg:grid-cols-2">
+        <div className="mt-14 grid grid-cols-1 gap-6 md:grid-cols-2">
           {/* LEFT — the alternative */}
           <RevealOnScroll delay={0.1} direction="left" className="h-full">
             <TiltCard
@@ -104,8 +104,8 @@ export default function PricingTeaser() {
                       <p className="text-xs text-white/40 line-through">{t.was}</p>
                     </div>
                     <div className="text-right">
-                      <span className="text-2xl font-extrabold gradient-text">{t.now}</span>
-                      <p className="text-[11px] font-semibold text-risk-low">← {t.note}</p>
+                      <span className="text-xl font-extrabold gradient-text sm:text-2xl">{t.now}</span>
+                      <p className="text-[10px] font-semibold text-risk-low sm:text-[11px]">← {t.note}</p>
                     </div>
                   </li>
                 ))}

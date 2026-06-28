@@ -3,7 +3,6 @@
 import { motion } from 'framer-motion'
 import AnimatedHeadline from '../AnimatedHeadline'
 import MagneticButton from '../MagneticButton'
-import LiveCounter from '../LiveCounter'
 import CountdownTimer from '../CountdownTimer'
 
 const SOCIAL_PROOF = [
@@ -104,21 +103,14 @@ export default function Hero() {
           </div>
         </motion.div>
 
-        {/* t=1.5s counter + timer */}
+        {/* t=1.5s countdown timer */}
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1.5, duration: 0.6, ease }}
-          className="mt-10 flex flex-col items-stretch justify-center gap-4 sm:flex-row"
+          className="mt-10 flex justify-center"
         >
-          <div className="glass flex flex-col items-center justify-center px-6 py-5">
-            <LiveCounter className="text-3xl font-extrabold gradient-text" />
-            <span className="mt-1 text-sm font-medium text-ink-secondary">
-              companies on the waitlist
-            </span>
-          </div>
-
-          <div className="glass flex flex-col items-center justify-center px-6 py-5">
+          <div className="glass flex flex-col items-center justify-center px-8 py-5">
             <span className="mb-2 text-xs font-semibold uppercase tracking-[2px] text-ink-secondary">
               Launch in
             </span>

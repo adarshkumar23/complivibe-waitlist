@@ -17,30 +17,16 @@ export default function Home() {
       {/* Animated gradient mesh background + drifting blobs */}
       <div className="mesh-bg fixed inset-0 -z-10" />
       <div
-        className="mesh-blob fixed animate-floaty"
-        style={{ width: 500, height: 500, top: -100, left: -120, background: '#5B5FE3' }}
+        className="mesh-blob mesh-blob-1 fixed animate-floaty"
+        style={{ background: '#5B5FE3' }}
       />
       <div
-        className="mesh-blob fixed animate-floaty"
-        style={{
-          width: 420,
-          height: 420,
-          top: '40%',
-          right: -120,
-          background: '#6EE7B7',
-          animationDelay: '2s',
-        }}
+        className="mesh-blob mesh-blob-2 fixed animate-floaty"
+        style={{ background: '#6EE7B7', animationDelay: '2s' }}
       />
       <div
-        className="mesh-blob fixed animate-floaty"
-        style={{
-          width: 380,
-          height: 380,
-          bottom: -120,
-          left: '30%',
-          background: '#A78BFA',
-          animationDelay: '4s',
-        }}
+        className="mesh-blob mesh-blob-3 fixed animate-floaty"
+        style={{ background: '#A78BFA', animationDelay: '4s' }}
       />
 
       <Navbar />

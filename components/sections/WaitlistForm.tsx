@@ -199,9 +199,9 @@ export default function WaitlistForm() {
   }
 
   return (
-    <section id="waitlist" className="relative px-5 py-20 sm:px-8 sm:py-28">
+    <section id="waitlist" className="relative px-4 py-16 sm:px-8 sm:py-28">
       <div className="relative z-10 mx-auto max-w-[640px]">
-        <div className="glass-strong overflow-hidden p-7 sm:p-10">
+        <div className="glass-strong overflow-hidden p-5 sm:p-10">
           <AnimatePresence mode="wait">
             {phase === 'result' && result ? (
               <motion.div
