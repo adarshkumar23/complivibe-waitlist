@@ -23,24 +23,26 @@ import { createClient } from '@supabase/supabase-js'
  * create policy "Service role only reads" on waitlist_signups for select using (auth.role() = 'service_role');
  */
 
-const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL as string
-const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY as string
-
 /**
  * Browser/anon client — uses the public publishable key.
  * Safe to use client-side and in unauthenticated server contexts (inserts only).
  */
-export const supabase = createClient(supabaseUrl, supabaseAnonKey, {
-  auth: { persistSession: false },
-})
+export function createAnonClient() {
+  return createClient(
+    process.env.NEXT_PUBLIC_SUPABASE_URL as string,
+    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY as string,
+    { auth: { persistSession: false } }
+  )
+}
 
 /**
  * Server-only admin client — uses the service role key and bypasses RLS.
  * NEVER import this into client components. Admin routes only.
  */
 export function createServiceClient() {
-  const serviceKey = process.env.SUPABASE_SERVICE_KEY as string
-  return createClient(supabaseUrl, serviceKey, {
-    auth: { persistSession: false, autoRefreshToken: false },
-  })
+  return createClient(
+    process.env.NEXT_PUBLIC_SUPABASE_URL as string,
+    process.env.SUPABASE_SERVICE_KEY as string,
+    { auth: { persistSession: false, autoRefreshToken: false } }
+  )
 }

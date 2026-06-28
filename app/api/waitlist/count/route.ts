@@ -1,27 +1,24 @@
-import { NextResponse } from 'next/server'
-import { createServiceClient } from '@/lib/supabase'
+import { createClient } from '@supabase/supabase-js'
 
 export const runtime = 'edge'
 
-// A baseline so the public number reads as established traction
-// even with few real rows yet.
-const BASE = 847
-
 export async function GET() {
   try {
-    const supabase = createServiceClient()
-    const { count, error } = await supabase
+    const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL
+    const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
+
+    if (!supabaseUrl || !supabaseKey) {
+      return Response.json({ count: 0 })
+    }
+
+    const supabase = createClient(supabaseUrl, supabaseKey)
+
+    const { count } = await supabase
       .from('waitlist_signups')
       .select('*', { count: 'exact', head: true })
 
-    if (error) {
-      return NextResponse.json({ count: BASE }, { headers: { 'Cache-Control': 'no-store' } })
-    }
-    return NextResponse.json(
-      { count: BASE + (count ?? 0) },
-      { headers: { 'Cache-Control': 'no-store' } }
-    )
+    return Response.json({ count: count || 0 })
   } catch {
-    return NextResponse.json({ count: BASE }, { headers: { 'Cache-Control': 'no-store' } })
+    return Response.json({ count: 0 })
   }
 }

@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { supabase } from '@/lib/supabase'
+import { createAnonClient } from '@/lib/supabase'
 import { calculateRiskScore } from '@/lib/riskScore'
 import { sendRiskScoreEmail } from '@/lib/resend'
 import { tierFromModelCount, type WaitlistApiResponse, type WaitlistInput } from '@/lib/types'
@@ -54,6 +54,7 @@ export async function POST(req: NextRequest): Promise<NextResponse<WaitlistApiRe
   //    Resilient to: duplicate email (409), rare waitlist_id collisions
   //    (regenerate), and the waitlist_id column not existing yet (drop it
   //    so the signup still saves until the migration is run).
+  const supabase = createAnonClient()
   let waitlistId: string | null = generateWaitlistId()
   let includeWaitlistId = true
   let lastError: { code?: string; message: string; details?: string } | null = null
