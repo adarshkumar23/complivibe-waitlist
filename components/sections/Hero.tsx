@@ -17,101 +17,114 @@ const ease = [0.25, 0.46, 0.45, 0.94] as const
 
 export default function Hero() {
   return (
+    /*
+     * Mobile: natural height, items start from top with padding.
+     * Desktop (sm+): full viewport height, content vertically centered.
+     * justify-center on flex with overflow clips the top on mobile — avoid it.
+     */
     <section
       id="top"
-      className="relative flex min-h-[100svh] flex-col items-center justify-center px-4 pb-12 pt-20 text-center sm:px-8 sm:pb-16 sm:pt-28"
+      className="relative flex flex-col items-center px-4 pb-10 pt-[72px] text-center
+                 sm:min-h-[100svh] sm:justify-center sm:px-8 sm:pb-16 sm:pt-0"
     >
-      <div className="relative z-10 mx-auto max-w-3xl">
-        {/* t=0.2s eyebrow */}
+      <div className="relative z-10 mx-auto w-full max-w-3xl">
+        {/* Eyebrow */}
         <motion.p
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.2, duration: 0.5, ease }}
-          className="eyebrow mb-5"
+          transition={{ delay: 0.2, duration: 0.45, ease }}
+          className="eyebrow mb-3 sm:mb-5"
         >
           AI Trust Infrastructure
         </motion.p>
 
-        {/* t=0.4s headline — word by word */}
+        {/* Headline */}
         <AnimatedHeadline
           className="hero-headline text-ink"
-          baseDelay={0.4}
-          perWord={0.06}
+          baseDelay={0.35}
+          perWord={0.05}
           lines={[
             ['Your', 'AI', 'is', 'live.'],
             ['Your', <span className="gradient-text">governance</span>, "isn't."],
           ]}
         />
 
-        {/* t=0.9s subheadline */}
+        {/* Subheadline */}
         <motion.p
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.9, duration: 0.55, ease }}
-          className="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-ink-secondary sm:mt-6 sm:text-lg md:text-xl"
+          transition={{ delay: 0.8, duration: 0.5, ease }}
+          className="mx-auto mt-3 max-w-xl text-sm leading-relaxed text-ink-secondary
+                     sm:mt-5 sm:max-w-2xl sm:text-base md:text-lg"
         >
           CompliVibe unifies AI compliance, governance, and observability into one trust layer
           — so you can ship AI without the regulatory risk.
         </motion.p>
 
-        {/* t=1.1s CTAs */}
+        {/* CTAs */}
         <motion.div
-          initial={{ opacity: 0, y: 24 }}
+          initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 1.1, duration: 0.55, ease }}
-          className="mt-9 flex flex-col items-center justify-center gap-4 sm:flex-row"
+          transition={{ delay: 1.0, duration: 0.5, ease }}
+          className="mt-6 flex flex-col items-center justify-center gap-3 sm:mt-8 sm:flex-row sm:gap-4"
         >
-          <MagneticButton href="#waitlist" className="btn-cta h-14 w-full sm:w-auto">
+          <MagneticButton
+            href="#waitlist"
+            className="btn-cta h-12 w-full text-sm sm:h-14 sm:w-auto sm:text-base"
+          >
             Get Early Access →
           </MagneticButton>
-          <a href="#platform" className="btn-ghost h-14 w-full sm:w-auto">
+          <a
+            href="#platform"
+            className="btn-ghost h-12 w-full text-sm sm:h-14 sm:w-auto sm:text-base"
+          >
             View Platform →
           </a>
         </motion.div>
 
-        {/* t=1.3s social proof strip — marquee on mobile, static on desktop */}
+        {/* Social proof — ticker on mobile, static pills on desktop */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ delay: 1.3, duration: 0.6 }}
-          className="mt-10"
+          transition={{ delay: 1.2, duration: 0.5 }}
+          className="mt-6 sm:mt-8"
         >
-          {/* desktop */}
-          <div className="hidden max-w-3xl flex-wrap items-center justify-center gap-x-4 gap-y-2 text-sm text-ink-secondary sm:mx-auto sm:flex">
+          {/* Desktop: static wrap */}
+          <div className="hidden flex-wrap items-center justify-center gap-x-3 gap-y-2 text-xs text-ink-secondary sm:flex sm:text-sm">
             {SOCIAL_PROOF.map((s, i) => (
               <span key={s.text} className="flex items-center gap-1.5">
-                {i > 0 && <span className="mr-3 text-brand-purple/30">·</span>}
+                {i > 0 && <span className="mr-2 text-brand-purple/30">·</span>}
                 <span>{s.icon}</span>
                 <span className="font-medium">{s.text}</span>
               </span>
             ))}
           </div>
-          {/* mobile ticker */}
+          {/* Mobile: scrolling ticker */}
           <div className="overflow-hidden sm:hidden">
             <div className="ticker-track flex w-max items-center">
               {[...SOCIAL_PROOF, ...SOCIAL_PROOF].map((s, i) => (
                 <span
                   key={i}
-                  className="flex items-center gap-1.5 whitespace-nowrap px-4 text-sm text-ink-secondary"
+                  className="flex items-center gap-1.5 whitespace-nowrap px-3 text-xs text-ink-secondary"
                 >
                   <span>{s.icon}</span>
                   <span className="font-medium">{s.text}</span>
-                  <span className="ml-3 text-brand-purple/30">·</span>
+                  <span className="ml-2 text-brand-purple/30">·</span>
                 </span>
               ))}
             </div>
           </div>
         </motion.div>
 
-        {/* t=1.5s countdown timer */}
+        {/* Countdown timer */}
         <motion.div
-          initial={{ opacity: 0, y: 24 }}
+          initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 1.5, duration: 0.6, ease }}
-          className="mt-10 flex justify-center"
+          transition={{ delay: 1.4, duration: 0.5, ease }}
+          className="mt-6 flex justify-center sm:mt-8"
         >
-          <div className="glass flex flex-col items-center justify-center px-8 py-5">
-            <span className="mb-2 text-xs font-semibold uppercase tracking-[2px] text-ink-secondary">
+          <div className="glass flex flex-col items-center justify-center px-5 py-3 sm:px-8 sm:py-5">
+            <span className="mb-1.5 text-[10px] font-semibold uppercase tracking-[2px] text-ink-secondary sm:mb-2 sm:text-xs">
               Launch in
             </span>
             <CountdownTimer />
@@ -119,12 +132,12 @@ export default function Hero() {
         </motion.div>
       </div>
 
-      {/* Scroll cue */}
+      {/* Scroll cue — only visible on desktop where hero fills viewport */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.8 }}
-        className="absolute bottom-7 left-1/2 z-10 -translate-x-1/2"
+        className="absolute bottom-6 left-1/2 z-10 hidden -translate-x-1/2 sm:block"
       >
         <motion.div
           animate={{ y: [0, 8, 0] }}

@@ -25,9 +25,10 @@ export default function Navbar() {
         backdropFilter: 'blur(20px) saturate(180%)',
         WebkitBackdropFilter: 'blur(20px) saturate(180%)',
         borderBottom: '1px solid',
+        paddingTop: 'env(safe-area-inset-top)',
       }}
     >
-      <nav className="mx-auto flex h-16 max-w-6xl items-center justify-between px-5 sm:px-8">
+      <nav className="mx-auto flex h-14 max-w-6xl items-center justify-between px-4 sm:h-16 sm:px-8">
         <motion.a
           href="#top"
           className="flex items-center gap-2.5"
